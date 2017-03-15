@@ -46,10 +46,10 @@ echo BannerFactory::renderBanner('http://placehold.it/350x150', $startDate, $end
 
 
 ### Testing
-PHP Unit can be installed via compose just run
+PHP Unit can be installed via composer just run, I have included composer.phar for simplicity
 
 ```
-composer install
+php composer.phar install
 ```
 
 from the root directory of the project.
