@@ -1,0 +1,16 @@
+{
+    "name": "garyhogarth/mbanner-code-sample",
+    "description": "A simple banner class",
+    "require": {
+
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "Gary Hogarth",
+            "email": "gary@garyhogarth.com"
+        }
+    ]
+}
