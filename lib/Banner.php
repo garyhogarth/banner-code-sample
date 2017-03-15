@@ -30,23 +30,8 @@ class Banner
         }
     }
 
-    /**
-     * Set the bannerURL property if valid
-     *
-     * @param $bannerUrl
-     */
     public function setBannerUrl($bannerUrl) {
-        // @improvement - Add a check to make sure file exists
         $this->bannerUrl = $bannerUrl;
-    }
-
-    /**
-     * Get the bannerUrl private property
-     *
-     * @return string
-     */
-    public function getBannerUrl() {
-        return $this->bannerUrl;
     }
 
     /**
@@ -59,16 +44,6 @@ class Banner
         $this->startDateTime = new \DateTime($startDateTime);
     }
 
-
-    /**
-     * Gets the startDateTime as a PHP DateTime Object
-     *
-     * @return \DateTime
-     */
-    public function getStartDateTime() {
-        return $this->startDateTime;
-    }
-
     /**
      * Set the endDateTime parameter from an ISO-8601 string
      *
@@ -77,6 +52,25 @@ class Banner
     public function setEndDateTime($endDateTime) {
         // @improvement - Check string is ISO-8601 format
         $this->endDateTime = new \DateTime($endDateTime);
+    }
+
+    /**
+     * Get the bannerUrl private property
+     *
+     * @return string
+     */
+    public function getBannerUrl() {
+        return $this->bannerUrl;
+    }
+
+
+    /**
+     * Gets the startDateTime as a PHP DateTime Object
+     *
+     * @return \DateTime
+     */
+    public function getStartDateTime() {
+        return $this->startDateTime;
     }
 
 
@@ -96,10 +90,6 @@ class Banner
         return $this->allowedIPs;
     }
 
-    public function isValid() {
-
-    }
-
     /**
      * Render the banner if:
      * - in list of allowed IP addresses
@@ -112,14 +102,23 @@ class Banner
         $ipAddress = isset($_SERVER['REMOTE_ADDR'])? $_SERVER['REMOTE_ADDR'] : null;
 
         if (in_array($ipAddress,$this->getAllowedIPs())) {
-            return $this->bannerUrl;
+            return $this->generateImgTag();
         }
 
         if ((!$this->getStartDateTime() || $currentDateTime >= $this->getStartDateTime()) &&
             (!$this->getEndDateTime() || $currentDateTime <= $this->getEndDateTime())) {
-            return $this->bannerUrl;
+            return $this->generateImgTag();
         }
 
-        return false;
+        return null;
+    }
+
+    /**
+     * Generates a populated img tag
+     *
+     * @return string
+     */
+    private function generateImgTag() {
+        return '<img src="'.$this->bannerUrl.'"/>';
     }
 }

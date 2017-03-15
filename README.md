@@ -1,6 +1,8 @@
 # Banner Code Sample
 A simple class and test for managing the displaying of a banner.
 
+In a real environment this would be too verbose, however for the point of demonstration I have completed it. 
+
 ## Conditions
 - A banner should be displayed during its display period
 - Outside of the display period, a banner should be displayed if the user’s device has a specific IP address
@@ -35,4 +37,9 @@ $banner->setStartDateTime($startDate);
 $banner->setEndDateTime($endDate);
 
 echo $banner->render();
+
+```
+### Render using Factory
+```php
+echo BannerFactory::renderBanner('http://placehold.it/350x150', $startDate, $endDate);
 ```

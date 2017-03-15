@@ -1,5 +1,5 @@
 <?php
-require_once 'Banner.php';
+require_once __DIR__ . '/../lib/Banner.php';
 
 use PHPUnit\Framework\TestCase;
 use App\Banner;
@@ -68,7 +68,7 @@ class BannerTest extends TestCase
 
         $banner = new Banner($bannerUrl, $startDate, $endDate);
 
-        $this->assertEquals(false,$banner->render());
+        $this->assertEquals(null,$banner->render());
     }
 
     /**
@@ -81,7 +81,7 @@ class BannerTest extends TestCase
 
         $banner = new Banner($bannerUrl, $startDate, $endDate);
 
-        $this->assertEquals($bannerUrl,$banner->render());
+        $this->assertEquals('<img src="'.$bannerUrl.'"/>',$banner->render());
     }
 
     /**
@@ -98,7 +98,7 @@ class BannerTest extends TestCase
 
         $banner = new Banner($bannerUrl, $startDate, $endDate);
 
-        $this->assertEquals($bannerUrl,$banner->render());
+        $this->assertEquals('<img src="'.$bannerUrl.'"/>',$banner->render());
     }
 
     /**
@@ -115,6 +115,6 @@ class BannerTest extends TestCase
 
         $banner = new Banner($bannerUrl, $startDate, $endDate);
 
-        $this->assertEquals(false,$banner->render());
+        $this->assertNull($banner->render());
     }
 }
