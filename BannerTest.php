@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../lib/Banner.php';
+require_once 'Banner.php';
 
 use PHPUnit\Framework\TestCase;
 use App\Banner;

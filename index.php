@@ -1,6 +1,6 @@
 <?php
 
-require_once 'lib/Banner.php';
+require_once 'Banner.php';
 
 $startDate = new \DateTime('- 1 week');
 $endDate = new \DateTime('+ 1 week');
