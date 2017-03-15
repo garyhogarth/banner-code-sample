@@ -43,3 +43,21 @@ echo $banner->render();
 ```php
 echo BannerFactory::renderBanner('http://placehold.it/350x150', $startDate, $endDate);
 ```
+
+
+### Testing
+PHP Unit can be installed via compose just run
+
+```
+composer install
+```
+
+from the root directory of the project.
+
+You can then run
+
+```
+vendor/bin/phpunit --colors tests
+```
+
+Alternatively you can use a locally installed version of PHP Unit
